@@ -170,12 +170,24 @@ class Information extends CI_Controller {
         }
     }
 
-    public function CTRL_View($id) {
+    public function CTRL_View($id,$language) {
 
+        $content="";
         $sql = "select * from ttrs_information where id ='$id'";
         $res = $this->db->query($sql)->row();
         if ($res) {
-            $data['page'] = $res->content;
+            
+            if($language=="indonesia"){
+            $content = $res->content;
+            }else if ($language=="usa"){
+                $content = $res->content_usa;
+            }else{
+                $content = $res->content;
+            }
+            
+            
+            
+            $data['page'] = $content;
         } else {
 
             $data['page'] = "No Content Available";
