@@ -43,7 +43,9 @@ class Md_information extends CI_Model {
 
         $id = $this->MDL_getAutoID();
         $title = $this->input->post('title');
+        $title_usa = $this->input->post('title_usa');
         $content = $this->input->post('content');
+        $content_usa = $this->input->post('content_usa');
         $status = $this->input->post('status');
 
         $userid = $this->session->userdata('userid');
@@ -66,6 +68,7 @@ class Md_information extends CI_Model {
             'external_source' => $external,
             'picture' => $this->input->post('picture'),
             'content' => $content,
+            'content_usa' => $content_usa,
             'status' => $status,
             'userid' => $userid,
             'recdate' => $recdate,
@@ -91,6 +94,7 @@ class Md_information extends CI_Model {
 
         $id = $this->input->post('id');
         $content = $this->input->post('content');
+        $content_usa = $this->input->post('content_usa');
         $title = $this->input->post('title');
         $status = $this->input->post('status');
 
@@ -107,7 +111,9 @@ class Md_information extends CI_Model {
 
         $data = array(
             'content' => $content,
+            'content_usa' => $content_usa,
             'title' => $title,
+            'title_usa' => $title_usa,
             'external_source' => $external,
             'link' => $link,
             'picture' => $this->input->post('picture'),

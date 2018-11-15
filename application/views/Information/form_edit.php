@@ -24,6 +24,15 @@
                     ?>
                 </div>
             </div>
+            <div class="control-group">
+                <label for="TemplateName" class="control-label">Title USA<span class="red bolder smaller">*</span></label>
+                <div class="controls">
+                    <?php
+                    $input = array('name' => 'title_usa', 'value' => $titleinfo_usa, 'maxlength' => 250, 'id' => 'TemplateName', 'class' => 'input-xlarge');
+                    echo form_input($input);
+                    ?>
+                </div>
+            </div>
 
             <div class="control-group">
                 <label for="TemplateName" class="control-label">Main Picture Url <span class="red bolder smaller">*</span></label>
@@ -111,7 +120,32 @@
                         </div>
                     </div>   
             </div>
+            
             <div class="hr"></div>
+            
+            <div id="content_editor" <?php echo $stylecontent;?>>   
+                
+
+                    <div class="control-group">
+                        <label for="Editor" class="control-label">Template Content USA</label>
+                        <div class="controls">
+                            <?php
+                            fckeditor();
+                            // Automatically calculates the editor base path based on the _samples directory.
+                            // This is usefull only for these samples. A real application should use something like this:
+                            // $oFCKeditor->BasePath = '/fckeditor/' ;	// '/fckeditor/' is the default value.
+
+                            $oFCKeditor = new FCKeditor('content_usa');
+                            $oFCKeditor->BasePath = base_url() . 'plugins/FCKeditor/';
+
+                            $oFCKeditor->Config['SkinPath'] = base_url() . 'plugins/FCKeditor/skins/silver/';
+                            $oFCKeditor->Height = '400';
+                            $oFCKeditor->Value = $content_usa;
+                            $oFCKeditor->Create();
+                            ?>
+                        </div>
+                    </div>   
+            </div>
             <div class="form-actions">
                 <button type="submit" name="submit" value="Save" class="btn btn-small btn-info"><i class="icon-save"></i> Save</button>&nbsp;
                 <?php

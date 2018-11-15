@@ -85,6 +85,7 @@ class Information extends CI_Controller {
 
                 $this->load->helper('plugin_helper');
                 $data['content'] = '';
+                $data['content_usa'] = '';
 
                 $data['id'] = $this->md_information->MDL_getAutoID();
 
@@ -138,8 +139,10 @@ class Information extends CI_Controller {
                 //var_dump($hasil);die();
                 $data['id'] = $hasil->id;
                 $data['titleinfo'] = $hasil->title;
+                $data['titleinfo_usa'] = $hasil->title_usa;
                 $data['external_source'] = $hasil->external_source;
                 $data['content'] = $hasil->content;
+                $data['content_usa'] = $hasil->content_usa;
                 $data['link'] = $hasil->link;
                 $data['picture'] = $hasil->picture;
                 $data['status'] = $hasil->status;
