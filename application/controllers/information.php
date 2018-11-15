@@ -170,7 +170,7 @@ class Information extends CI_Controller {
         }
     }
 
-    public function CTRL_View($id,$language) {
+    public function CTRL_View($id,$language="") {
 
         $content="";
         $sql = "select * from ttrs_information where id ='$id'";
