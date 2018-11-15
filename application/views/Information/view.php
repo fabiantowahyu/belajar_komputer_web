@@ -50,6 +50,9 @@
                        
                         ?>&nbsp;
                         <button type="button" class="btn btn-mini btn-success" onclick="PopUpWindow('<?php echo $link_url; ?>', 'mywindow', 800, 600, 'yes', 'yes'); return false;"><i class="icon-eye-open bigger-120"></i></button>
+                   
+                   <button type="button" class="btn btn-mini btn-success" onclick="PopUpWindow('<?php echo $link_url.'/usa'; ?>', 'mywindow', 800, 600, 'yes', 'yes'); return false;"><i class="icon-eye-open bigger-120"></i></button>
+                   
                     </td>
                 </tr>
             <?php } ?>
