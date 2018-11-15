@@ -1,0 +1,5 @@
+[31-Mar-2015 12:59:17 America/New_York] PHP Fatal error:  Using $this when not in object context in /home/k3154570/public_html/hcms/application/views/Themes/default/popupwindow.php on line 5
+[31-Mar-2015 12:59:17 America/New_York] PHP Fatal error:  Using $this when not in object context in /home/k3154570/public_html/hcms/application/views/Themes/default/admin_2.php on line 5
+[31-Mar-2015 12:59:17 America/New_York] PHP Fatal error:  Using $this when not in object context in /home/k3154570/public_html/hcms/application/views/Themes/default/login.php on line 5
+[31-Mar-2015 12:59:17 America/New_York] PHP Fatal error:  Using $this when not in object context in /home/k3154570/public_html/hcms/application/views/Themes/default/admin.php on line 5
+[31-Mar-2015 12:59:17 America/New_York] PHP Fatal error:  Using $this when not in object context in /home/k3154570/public_html/hcms/application/views/Themes/default/error_akses.php on line 5

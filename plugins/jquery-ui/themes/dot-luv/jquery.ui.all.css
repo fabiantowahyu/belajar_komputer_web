@@ -1,0 +1,20 @@
+/*!
+ * jQuery UI CSS Framework 1.10.3
+ * http://jqueryui.com
+ *
+ * Copyright 2013 jQuery Foundation and other contributors
+ * Released under the MIT license.
+ * http://jquery.org/license
+ *
+ * http://docs.jquery.com/UI/Theming
+ */
+@import "jquery.ui.base.css";
+@import "jquery.ui.theme.css";
+
+/* Jquery untuk multiple selection */
+.multiselectable { width:500px; display:block; overflow: hidden; width: 100%; }
+.multiselectable select, .multiselectable div { width: 200px; float:left; }
+.multiselectable div * { display: block; margin: 0 auto; }
+.multiselectable div { display: inline; }
+.multiselectable .m-selectable-controls { margin-top: 3em; width: 50px; }
+.multiselectable .m-selectable-controls button { margin-top: 1em; }
