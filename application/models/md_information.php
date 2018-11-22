@@ -64,6 +64,7 @@ class Md_information extends CI_Model {
         $data = array(
             'id' => $id,
             'title' => $title,
+            'title_usa' => $title_usa,
             'link' => $link,
             'external_source' => $external,
             'picture' => $this->input->post('picture'),
@@ -96,6 +97,7 @@ class Md_information extends CI_Model {
         $content = $this->input->post('content');
         $content_usa = $this->input->post('content_usa');
         $title = $this->input->post('title');
+        $title_usa = $this->input->post('title_usa');
         $status = $this->input->post('status');
 
         $moduser = $this->session->userdata('userid');
