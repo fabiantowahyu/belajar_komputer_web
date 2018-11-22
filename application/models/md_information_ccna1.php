@@ -34,7 +34,7 @@ class Md_information_ccna1 extends CI_Model {
     public function MDL_SelectID($id) {
         $ttrs_information = $this->config->item('ttrs_information');
 
-        return $this->db->get_where($ttrs_information, array('id' => $id))->row();
+        return $this->db->get_where('ttrs_information_ccna1', array('id' => $id))->row();
     }
 
     // Fungsi Tambah Data
@@ -153,7 +153,7 @@ class Md_information_ccna1 extends CI_Model {
             $no_urut = 1;
         }
 
-        $hasil = sprintf("NWS%05d", $no_urut);
+        $hasil = sprintf("NC1%05d", $no_urut);
 
         return $hasil;
     }
