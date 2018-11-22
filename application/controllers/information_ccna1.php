@@ -10,7 +10,7 @@ class Information_ccna1 extends CI_Controller {
 
     public function __construct() {
         parent::__construct();
-        $this->load->model('md_information_ccna1_ccna1');
+        $this->load->model('md_information_ccna1');
     }
 
     public function index() {
@@ -34,7 +34,7 @@ class Information_ccna1 extends CI_Controller {
             $data['breadcrum'] = $breadcrum;
             /* end */
 
-            $data['results'] = $this->md_information_ccna1_ccna1->MDL_Select();
+            $data['results'] = $this->md_information_ccna1->MDL_Select();
             
             //$this->auth->TVD($data['results']);die();
             //$this->auth->TVD($data['results']);die();
@@ -58,9 +58,9 @@ class Information_ccna1 extends CI_Controller {
             if ($this->input->post('close')) {
                 redirect('information_ccna1');
             } elseif ($this->input->post('submit')) {
-                $isDuplicated = $this->md_information_ccna1_ccna1->MDL_isPermInsert($this->input->post('id'));
+                $isDuplicated = $this->md_information_ccna1->MDL_isPermInsert($this->input->post('id'));
                 if ($isDuplicated) {
-                    $this->md_information_ccna1_ccna1->MDL_Insert();
+                    $this->md_information_ccna1->MDL_Insert();
                     redirect('information_ccna1');
                 } else {
                     $data['id'] = $this->input->post('id');
@@ -87,7 +87,7 @@ class Information_ccna1 extends CI_Controller {
                 $data['content'] = '';
                 $data['content_usa'] = '';
 
-                $data['id'] = $this->md_information_ccna1_ccna1->MDL_getAutoID();
+                $data['id'] = $this->md_information_ccna1->MDL_getAutoID();
 
                 $nm_title = $this->auth->Auth_getNameMenu();
                 $data['title_head'] = sprintf("%s - Add New", $nm_title);
@@ -115,7 +115,7 @@ class Information_ccna1 extends CI_Controller {
                 redirect('information_ccna1');
             } elseif ($this->input->post('submit')) {
                 $id = $this->input->post('id');
-                $this->md_information_ccna1_ccna1->MDL_Update($id);
+                $this->md_information_ccna1->MDL_Update($id);
                 redirect('information_ccna1');
             } else {
                 /* Bread crum */
@@ -135,7 +135,7 @@ class Information_ccna1 extends CI_Controller {
 
                 $this->load->helper('plugin_helper');
 
-                $hasil = $this->md_information_ccna1_ccna1->MDL_SelectID($id);
+                $hasil = $this->md_information_ccna1->MDL_SelectID($id);
                 //var_dump($hasil);die();
                 $data['id'] = $hasil->id;
                 $data['titleinfo'] = $hasil->title;
@@ -168,7 +168,7 @@ class Information_ccna1 extends CI_Controller {
             $data['page'] = 'error_sysmenu';
             $this->load->view('template_admin', $data);
         } else {
-            $this->md_information_ccna1_ccna1->MDL_Delete($id);
+            $this->md_information_ccna1->MDL_Delete($id);
             redirect('information_ccna1');
         }
     }
@@ -196,7 +196,7 @@ class Information_ccna1 extends CI_Controller {
             $data['page'] = "No Content Available";
         }
 
-        $this->load->view('template_webview_information_ccna1', $data);
+        $this->load->view('template_webview_information', $data);
     }
 
     public function CTRL_Browse_picture() {
@@ -207,7 +207,7 @@ class Information_ccna1 extends CI_Controller {
             if ($this->input->post()) {
 
 
-                $res = $this->md_information_ccna1_ccna1->MDL_UploadPicture();
+                $res = $this->md_information_ccna1->MDL_UploadPicture();
                 if ($res) {
                     $this->session->set_flashdata('upload_success', array('title' => '', 'message' => 'Success Upload Images', 'class' => 'alert alert-success'));
 
@@ -216,7 +216,7 @@ class Information_ccna1 extends CI_Controller {
                 }
             }
 
-            $data['results'] = $this->md_information_ccna1_ccna1->MDL_SelectPicture();
+            $data['results'] = $this->md_information_ccna1->MDL_SelectPicture();
 
 
             $data['url'] = 'information_ccna1/CTRL_Browse_picture/';
@@ -230,7 +230,7 @@ class Information_ccna1 extends CI_Controller {
         if (!$this->auth->Auth_isPerm()) {
             $this->load->view('error_akses');
         } else {
-            $this->md_information_ccna1_ccna1->MDL_DeletePicture($id);
+            $this->md_information_ccna1->MDL_DeletePicture($id);
             $this->session->set_flashdata('upload_success', array('title' => '', 'message' => 'Success Delete Images', 'class' => 'alert alert-success'));
 
             redirect('information_ccna1/CTRL_Browse_picture');
