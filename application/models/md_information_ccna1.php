@@ -64,6 +64,7 @@ class Md_information_ccna1 extends CI_Model {
         $data = array(
             'id' => $id,
             'title' => $title,
+            'title_usa' => $title_usa,
             'link' => $link,
             'external_source' => $external,
             'picture' => $this->input->post('picture'),
@@ -93,6 +94,8 @@ class Md_information_ccna1 extends CI_Model {
         $ttrs_information = $this->config->item('ttrs_information');
 
         $id = $this->input->post('id');
+        
+        $title_usa = $this->input->post('title_usa');
         $content = $this->input->post('content');
         $content_usa = $this->input->post('content_usa');
         $title = $this->input->post('title');
@@ -114,6 +117,7 @@ class Md_information_ccna1 extends CI_Model {
             'content_usa' => $content_usa,
             'title' => $title,
             'title_usa' => $title_usa,
+            
             'external_source' => $external,
             'link' => $link,
             'picture' => $this->input->post('picture'),
