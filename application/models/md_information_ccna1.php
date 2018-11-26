@@ -23,7 +23,7 @@ class Md_information_ccna1 extends CI_Model {
         $hasil = array();
 
         $sSQL = "
-			Select * from $ttrs_information_picture
+			Select * from $ttrs_information_picture order by recdate desc
 		";
 
         $hasil = $this->db->query($sSQL)->result();
@@ -108,7 +108,7 @@ class Md_information_ccna1 extends CI_Model {
             $external = 1;
             $link = $this->input->post('link');
         } else {
-            $link = base_url() . 'information/CTRL_View/' . $id;
+            $link = base_url() . 'information_ccna1/CTRL_View/' . $id;
             $external = 0;
         }
 

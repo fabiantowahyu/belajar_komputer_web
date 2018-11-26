@@ -23,7 +23,7 @@ class Md_information extends CI_Model {
         $hasil = array();
 
         $sSQL = "
-			Select * from $ttrs_information_picture
+			Select * from $ttrs_information_picture order by recdate desc
 		";
 
         $hasil = $this->db->query($sSQL)->result();
