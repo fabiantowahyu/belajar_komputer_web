@@ -162,6 +162,7 @@ $config['ttrs_task_comment'] = $dbPrefix . 'ttrs_task_comment';
 
 
 $config['ttrs_information'] = $dbPrefix . 'ttrs_information';
+$config['ttrs_information_alkes'] = $dbPrefix . 'ttrs_information_alkes';
 $config['ttrs_information_picture'] = $dbPrefix . 'ttrs_information_picture';
 
 
