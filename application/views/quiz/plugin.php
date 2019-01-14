@@ -127,6 +127,7 @@
             $("#itemRow").append('<tr id="row' + i + '">' +
                     
                     '<td align="center"><input type="text" name="quiz[' + i + '][question]" placeholder="question" ></td>' +
+                    '<td align="center"><input type="text" name="quiz[' + i + '][question_usa]" placeholder="question_usa" ></td>' +
                     '<td align="center"><input type="text" name="quiz[' + i + '][urutan]" placeholder="urutan" /></td>' +
                     '<td align="center"><input type="text" name="quiz[' + i + '][option_a]" placeholder="option a" /></td>' +
                     '<td align="center"><input type="text" name="quiz[' + i + '][option_b]" placeholder="option b" /></td>' +
@@ -149,6 +150,7 @@
             $("#itemRow").append('<tr id="row' + j + '">' +
                     
                     '<td align="center"><input type="text" name="quiz[' + j + '][question]" placeholder="question" ></td>' +
+                    '<td align="center"><input type="text" name="quiz[' + j + '][question_usa]" placeholder="question_usa" ></td>' +
                     '<td align="center"><input type="text" name="quiz[' + j + '][urutan]" placeholder="urutan" /></td>' +
                     '<td align="center"><input type="text" name="quiz[' + j + '][option_a]" placeholder="option_a" /></td>' +
                     '<td align="center"><input type="text" name="quiz[' + j + '][option_b]" placeholder="option_b" /></td>' +

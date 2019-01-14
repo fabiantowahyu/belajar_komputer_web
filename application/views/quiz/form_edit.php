@@ -23,6 +23,7 @@
                 <thead>
 
                 <th>Question </th>
+                <th>Question usa</th>
                  <th>Urutan</th>
                 <th>Option a</th>
                 <th>Option b</th>
@@ -42,6 +43,7 @@
 
                     <input type="hidden" name="quiz[<?= $key ?>][id_information]" value="<?= $s->id_information ?>">
                     <td align="center"><input type="text" name="quiz[<?= $key ?>][question]" value="<?= $s->question ?>"></td>
+                    <td align="center"><input type="text" name="quiz[<?= $key ?>][question_usa]" value="<?= $s->question_usa ?>"></td>
                     <td align="center"><input type="text" name="quiz[<?= $key ?>][urutan]" value="<?= $s->urutan ?>" /></td>
                     <td align="center"><input type="text" name="quiz[<?= $key ?>][option_a]" value="<?= $s->option_a ?>" /></td>
                     <td align="center"><input type="text" name="quiz[<?= $key ?>][option_b]" value="<?= $s->option_b ?>" /></td>

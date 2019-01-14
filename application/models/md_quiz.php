@@ -14,6 +14,7 @@ class Md_Quiz extends CI_Model {
 
 group_concat('<li>',urutan order by urutan asc separator '<li/>') as urutan,
 group_concat('<li>',question order by urutan asc separator '<li/>') as question,
+group_concat('<li>',question_usa order by urutan asc separator '<li/>') as question_usa,
 group_concat('<li>',option_a order by urutan asc separator '<li/>') as option_a,
 group_concat('<li>',option_b order by urutan asc separator '<li/>') as option_b,
 group_concat('<li>',option_c order by urutan asc separator '<li/>') as option_c,
@@ -67,6 +68,7 @@ group_concat('<li>',answer order by urutan asc separator '<li/>') as answer
 	    $data = array(
 		'id_information' => $id_information,
 		'question' => $value['question'],
+                'question_usa' => $value['question_usa'],
                 'urutan' => $value['urutan'],
 		'option_a' => $value['option_a'],
 		'option_b' => $value['option_b'],
@@ -95,6 +97,7 @@ group_concat('<li>',answer order by urutan asc separator '<li/>') as answer
 	    $data = array(
 		'id_information' => $this->uri->segment(3),
 		'question' => $score[$i]['question'],
+                'question_usa' => $score[$i]['question_usa'],
 		'urutan' => $score[$i]['urutan'],
 		'option_a' => $score[$i]['option_a'],
 		'option_b' => $score[$i]['option_b'],
