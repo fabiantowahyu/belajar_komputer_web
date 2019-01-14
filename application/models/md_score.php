@@ -32,27 +32,27 @@ group_concat('<li>',answer order by urutan asc separator '<li/>') as answer
 	return $hasil;
     }
 
-    public function get_all_score($score_type) {
+    public function get_all_score($id_information) {
 
 	$this->db->select('*');
 
-	$this->db->from('tmst_score');
-	$this->db->where('score_type', $score_type);
-	$this->db->order_by("score_order", "desc");
+	$this->db->from('tmst_quiz');
+	$this->db->where('id_information', $id_information);
+	$this->db->order_by("urutan", "desc");
 	$get = $this->db->get();
 	$result = $get->result();
 	return $result;
     }
 
-    public function MDL_SelectID($id) {
-	$tblscore = $this->config->item('tmst_score');
+    public function MDL_SelectID($id_information) {
+	$tmst_quiz = $this->config->item('tmst_quiz');
 
-	return $this->db->get_where($tblscore, array('score_type' => $id))->row();
+	return $this->db->get_where($tmst_quiz, array('id_information' => $id_information))->row();
     }
 
     // Fungsi Tambah Data
     public function MDL_Insert() {
-	$tblscore = $this->config->item('tmst_score');
+	$tmst_quiz = $this->config->item('tmst_quiz');
 
 
 	$userid = $this->session->userdata('userid');
@@ -60,58 +60,64 @@ group_concat('<li>',answer order by urutan asc separator '<li/>') as answer
 	$moduser = $this->session->userdata('userid');
 	$moddate = date("Y-m-d H:i:s");
 
-	$score_type = $this->input->post('score_type');
-	$score = $this->input->post('score');
+	$id_information = $this->input->post('id_information');
+	$quiz = $this->input->post('quiz');
 
-	foreach ($score as $key => $value) {
+	foreach ($quiz as $key => $value) {
 	    $data = array(
-		'score_type' => $score_type,
-		'score_value' => $value['score_value'],
-		'score_mask' => $value['score_mask'],
-		'score_order' => $value['score_order'],
-		'score_description' => $value['score_description'],
+		'id_information' => $id_information,
+		'question' => $value['question'],
+                'urutan' => $value['urutan'],
+		'option_a' => $value['option_a'],
+		'option_b' => $value['option_b'],
+		'option_c' => $value['option_c'],
+		'option_d' => $value['option_d'],
+                'answer' => $value['answer'],
 		'userid' => $userid,
 		'recdate' => $recdate,
 		'moduser' => $moduser,
 		'moddate' => $moddate
 	    );
-	    $this->db->insert($tblscore, $data);
+	    $this->db->insert($tmst_quiz, $data);
 	}
     }
 
     // Fungsi Ubah Data
-    public function MDL_Update($score_type) {
-	$tblscore = $this->config->item('tmst_score');
+    public function MDL_Update($id_information) {
+	$tmst_quiz = $this->config->item('tmst_quiz');
 
 	$moduser = $this->session->userdata('userid');
 	$moddate = date("Y-m-d H:i:s");
 
-	$score = $this->input->post('score');
+	$quiz = $this->input->post('quiz');
 
-	for ($i = 0; $i < count($score); $i++) {
+	for ($i = 0; $i < count($quiz); $i++) {
 	    $data = array(
-		'score_type' => $this->uri->segment(3),
-		'score_value' => $score[$i]['score_value'],
-		'score_mask' => $score[$i]['score_mask'],
-		'score_order' => $score[$i]['score_order'],
-		'score_description' => $score[$i]['score_description'],
+		'id_information' => $this->uri->segment(3),
+		'question' => $score[$i]['question'],
+		'urutan' => $score[$i]['urutan'],
+		'option_a' => $score[$i]['option_a'],
+		'option_b' => $score[$i]['option_b'],
+		'option_c' => $score[$i]['option_c'],
+		'option_d' => $score[$i]['option_d'],
+                'answer' => $score[$i]['answer'],
 		'moduser' => $moduser,
 		'moddate' => $moddate
 	    );
 
-	    if (!$score[$i][id_score]) {
-		$this->db->insert($tblscore, $data);
+	    if (!$quiz[$i]['id_information']) {
+		$this->db->insert($tmst_quiz, $data);
 	    } else {
-		$this->db->where('id', $score[$i][id_score]);
-		$this->db->update($tblscore, $data);
+		$this->db->where('id', $quiz[$i]['id_information']);
+		$this->db->update($tmst_quiz, $data);
 	    }
 	}
     }
 
-    public function MDL_isPermInsert($id) {
-	$tblscore = $this->config->item('tmst_score');
+    public function MDL_isPermInsert($id_information) {
+	$tmst_quiz = $this->config->item('tmst_quiz');
 
-	$res = $this->db->get_where($tblscore, array('id' => $id))->num_rows();
+	$res = $this->db->get_where($tmst_quiz, array('id_information' => $id_information))->num_rows();
 	if ($res) {
 	    return 0;
 	} else {
@@ -120,21 +126,22 @@ group_concat('<li>',answer order by urutan asc separator '<li/>') as answer
     }
 
     // Fungsi Hapus Data
-    public function MDL_Delete($id) {
-	$tblscore = $this->config->item('tmst_score');
+    public function MDL_Delete($id_information) {
+	$tmst_quiz = $this->config->item('tmst_quiz');
 
-	$this->db->delete($tblscore, array('score_type' => $id));
+	$this->db->delete($tmst_quiz, array('id_information' => $id_information));
     }
 
     public function MDL_Delete_Item($id) {
-	$tblscore = $this->config->item('tmst_score');
-	$this->db->delete($tblscore, array('id' => $id));
+	$tmst_quiz = $this->config->item('tmst_quiz');
+        
+	$this->db->delete($tmst_quiz, array('id' => $id));
     }
 
-    public function MDL_isPermDelete($id) {
-	$tblscore = $this->config->item('tmst_score');
-	$this->db->from($tblscore);
-	$this->db->where('score_type', $id);
+    public function MDL_isPermDelete($id_information) {
+	$tmst_quiz = $this->config->item('tmst_quiz');
+	$this->db->from($tmst_quiz);
+	$this->db->where('id_information', $id_information);
 	$result = $this->db->get()->num_rows();
 
 

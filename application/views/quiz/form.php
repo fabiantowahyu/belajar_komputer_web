@@ -19,6 +19,7 @@
 	<table class="table table-striped table-bordered table-hover">
 	    <thead>
 	   <th>Question </th>
+           <th>Urutan</th>
                 <th>Option a</th>
                 <th>Option b</th>
                 <th>Option c</th>

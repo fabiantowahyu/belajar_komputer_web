@@ -58,7 +58,7 @@ class Quiz extends CI_Controller {
             if ($this->input->post('close')) {
                 redirect('quiz');
             } elseif ($this->input->post('submit')) {
-                $isDuplicated = $this->md_quiz->MDL_isPermInsert($this->input->post('id'));
+                $isDuplicated = $this->md_quiz->MDL_isPermInsert($this->input->post('id_information'));
                 if ($isDuplicated) {
                     $this->md_quiz->MDL_Insert();
 
@@ -102,14 +102,14 @@ class Quiz extends CI_Controller {
         }
     }
 
-    public function CTRL_Edit($id = '') {
+    public function CTRL_Edit($id_information = '') {
         if (!$this->auth->Auth_isPerm()) {
             $this->load->view('error_akses');
         } elseif (!$this->auth->Auth_isPrivButton('edit')) {
             $data['action'] = 'edit';
             $data['page'] = 'error_sysmenu';
             $this->load->view('template_admin', $data);
-        } elseif (!$this->auth->Auth_isRecID($id, $this->tblName, $this->field)) {
+        } elseif (!$this->auth->Auth_isRecID($id_information, $this->tblName, $this->field)) {
             $data['id'] = $id;
             $data['page'] = 'error_invalidID';
             $this->load->view('template_admin', $data);
@@ -117,8 +117,8 @@ class Quiz extends CI_Controller {
             if ($this->input->post('close')) {
                 redirect('quiz');
             } elseif ($this->input->post('submit')) {
-                $quiz_type = $this->input->post('quiz_type');
-                $this->md_quiz->MDL_Update($quiz_type);
+                $id_information = $this->input->post('id_information');
+                $this->md_quiz->MDL_Update($id_information);
 
 
                 redirect('quiz');
@@ -139,16 +139,16 @@ class Quiz extends CI_Controller {
                 $data['breadcrum'] = $breadcrum;
                 /* end */
 
-                $data['quiz'] = $this->md_quiz->get_all_quiz($id,'quiz_type');
-                $data['quiz_type'] = $this->uri->segment(3);
+                $data['quiz'] = $this->md_quiz->get_all_quiz($id_information,'id_information');
+                $data['id_information'] = $this->uri->segment(3);
               
 
                 $nm_title = $this->auth->Auth_getNameMenu();
                 $data['title_head'] = sprintf("%s - Update", $nm_title);
                 $data['title'] = sprintf("%s", $nm_title);
 
-                $data['url'] = 'quiz/CTRL_Edit/' . $id;
-                $data['url_del'] = 'quiz/CTRL_Delete/' . $id;
+                $data['url'] = 'quiz/CTRL_Edit/' . $id_information;
+                $data['url_del'] = 'quiz/CTRL_Delete/' . $id_information;
                 $data['page'] = 'quiz/form_edit';
                 $data['plugin'] = 'quiz/plugin';
                 $this->load->view('template_admin', $data);

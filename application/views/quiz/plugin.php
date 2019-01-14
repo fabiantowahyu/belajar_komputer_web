@@ -71,7 +71,7 @@
 			errorClass: 'help-inline',
 			focusInvalid: false,
 			rules: {
-					   score_type: {
+					   quiz_type: {
 					   	required: true
 					   }
 					  
@@ -126,12 +126,13 @@
 
             $("#itemRow").append('<tr id="row' + i + '">' +
                     
-                    '<td align="center"><input type="text" name="score[' + i + '][question]" placeholder="question" ></td>' +
-                    '<td align="center"><input type="text" name="score[' + i + '][option_a]" placeholder="option a" /></td>' +
-                    '<td align="center"><input type="text" name="score[' + i + '][option_b]" placeholder="option b" /></td>' +
-                    '<td align="center"><input type="text" name="score[' + i + '][option_c]" placeholder="option c" /></td>' +
-                    '<td align="center"><input type="text" name="score[' + i + '][option_d]" placeholder="option d" /></td>' +
-                    '<td align="center"><input type="text" name="score[' + i + '][answer]" placeholder="answer" /></td>' +
+                    '<td align="center"><input type="text" name="quiz[' + i + '][question]" placeholder="question" ></td>' +
+                    '<td align="center"><input type="text" name="quiz[' + i + '][urutan]" placeholder="urutan" /></td>' +
+                    '<td align="center"><input type="text" name="quiz[' + i + '][option_a]" placeholder="option a" /></td>' +
+                    '<td align="center"><input type="text" name="quiz[' + i + '][option_b]" placeholder="option b" /></td>' +
+                    '<td align="center"><input type="text" name="quiz[' + i + '][option_c]" placeholder="option c" /></td>' +
+                    '<td align="center"><input type="text" name="quiz[' + i + '][option_d]" placeholder="option d" /></td>' +
+                    '<td align="center"><input type="text" name="quiz[' + i + '][answer]" placeholder="answer" /></td>' +
                     
                     '<td><a class="btn btn-mini btn-danger" onclick="delRow(' + i + ')"><i class="icon-remove"></i></button></td>' +
                     '</tr>');        
@@ -147,12 +148,15 @@
         $('#btnAddRowEdit').click(function () {
             $("#itemRow").append('<tr id="row' + j + '">' +
                     
-                    '<td align="center"> <= <input type="text" name="score[' + j + '][score_value]" placeholder="score value" ></td>' +
-                    '<td align="center"><input type="text" name="score[' + j + '][score_mask]" placeholder="score mask" /></td>' +
-                    '<td  align="center" width="10%"><input type="text" name="score[' + j + '][score_order]"   placeholder="score order"></td>' +
-                    '<td align="center"><textarea name="score[' + j + '][score_description]" style="width:95%" placeholder="Description"></textarea></td>' +
+                    '<td align="center"><input type="text" name="quiz[' + j + '][question]" placeholder="question" ></td>' +
+                    '<td align="center"><input type="text" name="quiz[' + j + '][urutan]" placeholder="urutan" /></td>' +
+                    '<td align="center"><input type="text" name="quiz[' + j + '][option_a]" placeholder="option_a" /></td>' +
+                    '<td align="center"><input type="text" name="quiz[' + j + '][option_b]" placeholder="option_b" /></td>' +
+                    '<td align="center"><input type="text" name="quiz[' + j + '][option_c]" placeholder="option_c" /></td>' +
+                    '<td align="center"><input type="text" name="quiz[' + j + '][option_d]" placeholder="option_d" /></td>' +
+                    '<td align="center"><input type="text" name="quiz[' + j + '][answer]" placeholder="answer" /></td>' +
                     '<td><a class="btn btn-mini btn-danger" onclick="delRow(' + j + ')"><i class="icon-remove"></i></button></td>' +
-                   '<input type="hidden" name="score[' + j + '][id_score]"</td>' +
+                   '<input type="hidden" name="quiz[' + j + '][id_information]"</td>' +
             '</tr>');     
             num++;
             j++;
