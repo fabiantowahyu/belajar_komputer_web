@@ -56,7 +56,7 @@
                                     <i class="icon-link"></i>
                                 </a>
 
-                                <a href="<?php echo base_url();?>information/CTRL_DeletePicture/<?php echo $row->picture;?>" onclick="if (!confirm('Delete Data?')){return false;};">
+                                <a href="<?php echo base_url();?>information_kesehatan/CTRL_DeletePicture/<?php echo $row->picture;?>" onclick="if (!confirm('Delete Data?')){return false;};">
                                     <i class="icon-remove red"></i>
                                 </a>
                             </div>

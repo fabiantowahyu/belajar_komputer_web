@@ -1,6 +1,6 @@
 <?php
 
-class Md_information extends CI_Model {
+class Md_information_kesehatan extends CI_Model {
 
     // Fungsi Ambil Data
     public function MDL_Select() {
@@ -18,12 +18,12 @@ class Md_information extends CI_Model {
     }
 
     public function MDL_SelectPicture() {
-        $ttrs_information_kesehatan_picture = $this->config->item('ttrs_information_kesehatan_picture');
+        $ttrs_information_picture = $this->config->item('ttrs_information_picture');
 
         $hasil = array();
 
         $sSQL = "
-			Select * from $ttrs_information_kesehatan_picture order by recdate desc
+			Select * from $ttrs_information_picture order by recdate desc
 		";
 
         $hasil = $this->db->query($sSQL)->result();
@@ -165,7 +165,7 @@ class Md_information extends CI_Model {
         $file_picture = "";
         $filepath_picture = $this->config->item('filepath_picture');
 
-        $ttrs_information_kesehatan_picture = $this->config->item('ttrs_information_kesehatan_picture');
+        $ttrs_information_picture = $this->config->item('ttrs_information_picture');
 
 
         $konfigurasi = array(
@@ -200,7 +200,7 @@ class Md_information extends CI_Model {
 
 
 
-        $result = $this->db->insert($ttrs_information_kesehatan_picture, $data);
+        $result = $this->db->insert($ttrs_information_picture, $data);
         return $result;
     }
 

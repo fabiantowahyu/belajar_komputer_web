@@ -128,7 +128,7 @@
             <div class="form-actions">
                 <button type="submit" name="submit" value="Save" class="btn btn-small btn-info"><i class="icon-save"></i> Save</button> &nbsp;
                 <?php
-                echo anchor('information', '<i class="icon-reply"></i>&nbsp;Cancel', array('class' => 'btn btn-small btn-primary'));
+                echo anchor('information_kesehatan', '<i class="icon-reply"></i>&nbsp;Cancel', array('class' => 'btn btn-small btn-primary'));
                 echo form_hidden('id', $id);
                 ?>
             </div>

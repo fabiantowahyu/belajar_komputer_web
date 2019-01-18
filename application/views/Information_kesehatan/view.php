@@ -3,9 +3,9 @@
 <div class="row-fluid">
     <h3 class="header smaller lighter blue">
         <?php
-        echo anchor('information', $title, array('class' => 'link-control'));
+        echo anchor('information_kesehatan', $title, array('class' => 'link-control'));
         echo nbs(2);
-        echo anchor('information/CTRL_New', '<i class="icon-plus"></i>', array('class' => 'btn btn-danger btn-mini'));
+        echo anchor('information_kesehatan/CTRL_New', '<i class="icon-plus"></i>', array('class' => 'btn btn-danger btn-mini'));
         ?>
     </h3>
 
@@ -38,7 +38,7 @@
                         ?></td>
                     <td class="center">
                         <?php
-                        echo anchor('information/CTRL_Edit/' . $row->id, '<button class="btn btn-mini btn-info"><i class="icon-edit bigger-120"></i></button>');
+                        echo anchor('information_kesehatan/CTRL_Edit/' . $row->id, '<button class="btn btn-mini btn-info"><i class="icon-edit bigger-120"></i></button>');
 
                         if ($row->external_source == 1) {
 
