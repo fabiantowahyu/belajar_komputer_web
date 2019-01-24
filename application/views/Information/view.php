@@ -14,6 +14,7 @@
             <tr>
                 <th >No</th> 
                 <th >Title</th> 
+                <th >Page View</th>
                 <th >Created Date</th> 
                 <th class="center">Status</th> 
                 <th  class="center">Action</th> 
@@ -28,6 +29,7 @@
                 <tr>
                     <td><?php echo $no++; ?></td>
                     <td><?php echo $row->title; ?></td>
+                     <td><?php echo $row->page_view; ?></td>
                     <td><?php echo date('l, j F Y H:i', strtotime($row->recdate)) . ' WIB'; ?></td>
                     <td class="center"><?php
                         if ($row->status == 1) {

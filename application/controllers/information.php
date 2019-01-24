@@ -199,9 +199,10 @@ class Information extends CI_Controller {
                 $content = $res->content;
             }
             
+           // $content.="<button class='btn btn-block btn-info btn-medium' onClick='showAndroidToast('Hello Android!')'>START QUIZ</button>";
             
-            
-            $data['page'] = $content;
+            $test ='<SCRIPT type="text/javascript">if (typeof document.onselectstart!="undefined") {document.onselectstart=new Function ("return false");}else{document.onmousedown=new Function ("return false");document.onmouseup=new Function ("return true");}</SCRIPT>';
+            $data['page'] = $test.$content;
         } else {
 
             $data['page'] = "No Content Available";

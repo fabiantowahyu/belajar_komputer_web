@@ -49,6 +49,7 @@
 					<?php
 						echo $page;
 					?>
+                                    <br/><br/><br/><br/>
 				</div><!--/.page-content-->
 			<!--</div>/.main-content-->
 		</div><!--/.main-container-->
@@ -56,7 +57,11 @@
 		<!--basic scripts-->
 
 		<!--[if !IE]>-->
-
+<script type="text/javascript">
+    function showAndroidToast(toast) {
+        Android.showToast(toast);
+    }
+</script>
 		<script src="<?php echo base_url();?>plugins/js/jquery.min.js"></script>
 
 		<!--<![endif]-->
