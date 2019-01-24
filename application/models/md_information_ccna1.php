@@ -9,7 +9,7 @@ class Md_information_ccna1 extends CI_Model {
         $hasil = array();
 
         $sSQL = "
-			Select * from ttrs_information_ccna1 order by recdate desc
+			Select * from ttrs_information_ccna1 order by recdate asc
 		";
 
         $hasil = $this->db->query($sSQL)->result();

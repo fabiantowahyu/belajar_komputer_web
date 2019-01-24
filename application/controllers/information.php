@@ -175,6 +175,17 @@ class Information extends CI_Controller {
 
     public function CTRL_View($id,$language="") {
 
+            $sql2 = "select page_view from ttrs_information where id='$id'";
+            $res2 = $this->db->query($sql2)->row();
+            if($res2){
+                    $data = array('page_view'=>$res2->page_view+1);
+                    
+                    $this->db->where('id', $id);
+		$this->db->update('ttrs_information', $data);
+            }
+            
+            
+            
         $content="";
         $sql = "select * from ttrs_information where id ='$id'";
         $res = $this->db->query($sql)->row();
