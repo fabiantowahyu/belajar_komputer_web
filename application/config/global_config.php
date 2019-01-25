@@ -165,6 +165,7 @@ $config['ttrs_information'] = $dbPrefix . 'ttrs_information';
 $config['ttrs_information_alkes'] = $dbPrefix . 'ttrs_information_alkes';
 $config['ttrs_information_picture'] = $dbPrefix . 'ttrs_information_picture';
 $config['ttrs_information_kesehatan'] = $dbPrefix . 'ttrs_information_kesehatan';
+$config['ttrs_information_adsense'] = $dbPrefix . 'ttrs_information_adsense';
 
 
 // Tabel View...
