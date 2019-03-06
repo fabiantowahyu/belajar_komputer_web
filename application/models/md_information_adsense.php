@@ -165,7 +165,7 @@ class Md_information_adsense extends CI_Model {
         $file_picture = "";
         $filepath_picture = $this->config->item('filepath_picture');
 
-        $ttrs_information = $this->config->item('ttrs_information');
+        $ttrs_information_picture = $this->config->item('ttrs_information_picture');
 
 
         $konfigurasi = array(
@@ -200,15 +200,15 @@ class Md_information_adsense extends CI_Model {
 
 
 
-        $result = $this->db->insert($ttrs_information, $data);
+        $result = $this->db->insert($ttrs_information_picture, $data);
         return $result;
     }
 
     public function MDL_DeletePicture($picture) {
-        $ttrs_information = $this->config->item('ttrs_information');
+        $ttrs_information_picture = $this->config->item('ttrs_information_picture');
         $filepath_picture = $this->config->item('filepath_picture');
 
-        $this->db->delete($ttrs_information, array('picture' => $picture));
+        $this->db->delete($$ttrs_information_picture, array('picture' => $picture));
         $file = $filepath_picture . $picture;
 
         //echo $file;die();
